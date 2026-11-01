@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01T18:59:00.357Z",
+  "generatedAt": "2026-11-01T19:03:20.795Z",
   "files": [
     {
       "path": "server.mjs",
@@ -88,8 +88,8 @@
     },
     {
       "path": "tools/prepare-release.mjs",
-      "sha256": "a226197ee1ffffbe3e28ec0e7fd170888ca83c29c9a2e0f7c23e06b8389fc599",
-      "bytes": 3270
+      "sha256": "6104a06203ba6067db443c6f090e1dabfcdcde131a17f5b35e383bac45ca9722",
+      "bytes": 3354
     },
     {
       "path": "tools/start-personal.mjs",
@@ -102,19 +102,34 @@
       "bytes": 1723
     },
     {
+      "path": "tools/verify-desktop.mjs",
+      "sha256": "6a421bfbaddb79ad40f88405c991528c962c09a493b69a25139b90ed0d553743",
+      "bytes": 2267
+    },
+    {
+      "path": "tools/package-source.mjs",
+      "sha256": "600965990e5c1c31f211c116d3c76089e1eff913f63843ad81b6b77491325e45",
+      "bytes": 2591
+    },
+    {
       "path": "README.distribution.md",
       "sha256": "cfab50bb6e8239a152da6abbf38f3cd86fa20a757e480ee9816f8fe0caa7a263",
       "bytes": 4523
     },
     {
       "path": "docs/跨平台发布方案.md",
-      "sha256": "1379a519bc32ce673f477af84f7ccd02551b4c15f547a5703dd5fbe62fa7e460",
-      "bytes": 4690
+      "sha256": "e7bc70fdd611fbb8b5c5845e6227520f9e549b9b06d35efc6617c6458fcbd1c0",
+      "bytes": 4715
     },
     {
       "path": "docs/跨平台发布状态.md",
       "sha256": "b611d4f7c190e6d006049cac7791c5f2f02b4fddad08cb4ba24b5e38cb720d4b",
       "bytes": 998
+    },
+    {
+      "path": "docs/release-notes-0.2.0.md",
+      "sha256": "5da5d2d8a65638c66a7bfcdd1be42ded70be88d592e962fc22705434fb65ec8c",
+      "bytes": 1892
     },
     {
       "path": "src/config.mjs",

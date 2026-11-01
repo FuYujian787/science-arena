@@ -7,8 +7,8 @@ const stage=path.join(root,'.release-stage','science-arena');
 const directories=['src','public','prompts','desktop','build','.github','site','dify'];
 const files=['server.mjs','cli.mjs','package.json','package-lock.json','.gitignore','.env.example','Dockerfile','.dockerignore',
   'deploy/compose.public.yml','deploy/Caddyfile.public','deploy/public.env.example',
-  'tools/test.mjs','tools/test-http-e2e.mjs','tools/test-dify-e2e.mjs','tools/test-distribution.mjs','tools/mock-dify.mjs','tools/generate-icons.mjs','tools/prepare-release.mjs','tools/start-personal.mjs','tools/build-desktop.mjs',
-  'README.distribution.md','docs/跨平台发布方案.md','docs/跨平台发布状态.md'];
+  'tools/test.mjs','tools/test-http-e2e.mjs','tools/test-dify-e2e.mjs','tools/test-distribution.mjs','tools/mock-dify.mjs','tools/generate-icons.mjs','tools/prepare-release.mjs','tools/start-personal.mjs','tools/build-desktop.mjs','tools/verify-desktop.mjs','tools/package-source.mjs',
+  'README.distribution.md','docs/跨平台发布方案.md','docs/跨平台发布状态.md','docs/release-notes-0.2.0.md'];
 const walk=dir=>fs.readdirSync(path.join(root,dir),{withFileTypes:true}).flatMap(e=>e.isSymbolicLink()?[]:e.isDirectory()?walk(`${dir}/${e.name}`):[`${dir}/${e.name}`]);
 for(const dir of directories) files.push(...walk(dir));
 // Never reveal secrets in diagnostics: compare only in memory against local environment values.
