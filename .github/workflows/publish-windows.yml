@@ -1,0 +1,32 @@
+name: Verify and attach Windows preview
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  windows-preview:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run pack:win
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+      - run: node tools/verify-desktop.mjs
+      - name: Attach checked Windows packages
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: pwsh
+        run: |
+          $draft = gh release view v0.2.0 --json isDraft --jq '.isDraft'
+          if ($draft -ne 'true') { throw 'Expected an existing draft release' }
+          Get-ChildItem release -File | Where-Object { $_.Name -match '^Science-Arena-.*\.(exe|zip)$' } | ForEach-Object {
+            gh release upload v0.2.0 $_.FullName
+            if ($LASTEXITCODE -ne 0) { throw 'Artifact upload failed' }
+          }
+          gh release upload v0.2.0 release/desktop-verification.json --clobber
