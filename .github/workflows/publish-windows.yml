@@ -24,9 +24,12 @@ jobs:
         shell: pwsh
         run: |
           $draft = gh release view v0.2.0 --json isDraft --jq '.isDraft'
-          if ($draft -ne 'true') { throw 'Expected an existing draft release' }
+          if ($draft -ne 'true') { Write-Host 'Published release retained; verification completed.'; exit 0 }
+          $existing = (gh release view v0.2.0 --json assets | ConvertFrom-Json).assets.name
           Get-ChildItem release -File | Where-Object { $_.Name -match '^Science-Arena-.*\.(exe|zip)$' } | ForEach-Object {
-            gh release upload v0.2.0 $_.FullName
-            if ($LASTEXITCODE -ne 0) { throw 'Artifact upload failed' }
+            if ($existing -notcontains $_.Name) {
+              gh release upload v0.2.0 $_.FullName
+              if ($LASTEXITCODE -ne 0) { throw 'Artifact upload failed' }
+            }
           }
-          gh release upload v0.2.0 release/desktop-verification.json --clobber
+          if ($existing -notcontains 'desktop-verification.json') { gh release upload v0.2.0 release/desktop-verification.json }

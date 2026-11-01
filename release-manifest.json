@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01T19:09:36.692Z",
+  "generatedAt": "2026-11-01T19:10:48.182Z",
   "files": [
     {
       "path": "server.mjs",
@@ -338,8 +338,8 @@
     },
     {
       "path": ".github/workflows/publish-windows.yml",
-      "sha256": "962f5e05bdae20a59acd27811b1579ccec7fd6e5c941f1e175fc6c3717f2a3a1",
-      "bytes": 1111
+      "sha256": "312781c03f78f5c79bb923a9e61c94efe4b9879af4af43dbe7fbbc0a599137ad",
+      "bytes": 1351
     },
     {
       "path": ".github/workflows/release.yml",
