@@ -249,19 +249,17 @@ checkTrue('空会话也能生成文档', Buffer.isBuffer(emptyDocx) && emptyDocx
 
 console.log('\ndifySelftest —— 配置自检（离线分支）');
 const { selftest: difySelftest } = await import('../src/llm/dify.mjs');
-const { config } = await import('../src/config.mjs');
-const st = await difySelftest({ dryRun: true });
+const { withModelConfig } = await import('../src/config.mjs');
+const st = await withModelConfig({ dify: { baseUrl: 'https://dify.example.test', appKey: '', pinIp: '' } }, () => difySelftest({ dryRun: true }));
 checkTrue('返回 ok 字段', typeof st.ok === 'boolean');
 checkTrue('返回步骤列表', Array.isArray(st.steps) && st.steps.length > 0);
 checkTrue(
   '每步都带 name/ok/detail',
   st.steps.every((s) => typeof s.name === 'string' && typeof s.ok === 'boolean' && typeof s.detail === 'string'),
 );
-if (!config.dify.appKey) {
-  checkTrue('未配置 Key 时给出可执行指引', st.ok === false && /app-/.test(st.hint || ''));
-} else {
-  console.log('  · 已配置 DIFY_APP_KEY，跳过"未配置"分支断言（避免测试触发真实网络请求）');
-}
+checkTrue('未配置 Key 时给出可执行指引', st.ok === false && /app-/.test(st.hint || ''));
+const noUrl = await withModelConfig({ dify: { baseUrl: '', appKey: '', pinIp: '' } }, () => difySelftest({ dryRun: true }));
+checkTrue('未配置地址时先提示填写地址', !noUrl.ok && /DIFY_BASE_URL/.test(noUrl.hint));
 
 console.log('\nclassifyDifyError —— 把 Dify 报错翻译成该改什么');
 const { classifyDifyError } = await import('../src/llm/dify.mjs');

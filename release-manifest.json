@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01T18:56:26.367Z",
+  "generatedAt": "2026-11-01T18:59:00.357Z",
   "files": [
     {
       "path": "server.mjs",
@@ -58,8 +58,8 @@
     },
     {
       "path": "tools/test.mjs",
-      "sha256": "5cbf41f109d1b84a57c0f9c3d29a428bb4699f14dca5a0d94f943a35dbd7e733",
-      "bytes": 24143
+      "sha256": "f1c11e43342851eb1f693b4a05d33fd1e825b7e63d6ab569339501bd342b7946",
+      "bytes": 24316
     },
     {
       "path": "tools/test-http-e2e.mjs",
