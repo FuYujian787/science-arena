@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01T19:10:48.182Z",
+  "generatedAt": "2026-11-01T19:11:43.938Z",
   "files": [
     {
       "path": "server.mjs",
@@ -348,8 +348,8 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "3c1605367afa5edb1d4152aeb885a6d59e03268aa5b9a1e49f7a67fe7126caf6",
-      "bytes": 3104
+      "sha256": "3091eb38dff6b120b3b6ad980dd2a08dceaeb242f2b1a488c91b62913e8af489",
+      "bytes": 3264
     },
     {
       "path": "dify/science-arena-backend.yml",
