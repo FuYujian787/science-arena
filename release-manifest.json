@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01T19:03:20.795Z",
+  "generatedAt": "2026-11-01T19:04:43.751Z",
   "files": [
     {
       "path": "server.mjs",
@@ -330,6 +330,11 @@
       "path": ".github/workflows/pages.yml",
       "sha256": "17c6bae0cecd32dea606172a4db09eb1561db1fb6ded500e8d23878c2e29edc7",
       "bytes": 538
+    },
+    {
+      "path": ".github/workflows/publish-existing.yml",
+      "sha256": "2f26289878ccb9ec7837f807caa5e503134810afe93130255c8e9de40f7d030a",
+      "bytes": 947
     },
     {
       "path": ".github/workflows/release.yml",

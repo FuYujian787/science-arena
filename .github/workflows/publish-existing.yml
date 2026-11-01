@@ -1,0 +1,33 @@
+name: Attach verified Mac builds
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: Successful desktop build run ID
+        required: true
+      tag:
+        description: Existing draft release tag
+        required: true
+        default: v0.2.0
+permissions:
+  actions: read
+  contents: write
+jobs:
+  attach:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.run_id }}
+          pattern: macOS-*
+          merge-multiple: true
+          path: assets
+      - name: Attach DMG files to the existing draft
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          TAG: ${{ inputs.tag }}
+        run: |
+          gh release view "$TAG" --json isDraft --jq '.isDraft' | grep -qx true
+          find assets -name '*.dmg' -type f -exec gh release upload "$TAG" {} \;
