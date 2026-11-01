@@ -6,7 +6,7 @@
 
 ## 下载使用
 
-在本仓库 **Releases** 中查看实际发布的安装包：
+在本仓库 [Releases](https://github.com/FuYujian787/science-arena/releases) 中下载安装包，也可访问[下载介绍页](https://fuyujian787.github.io/science-arena/)：
 
 - Windows x64：`Science-Arena-版本-Windows-x64.exe`。
 - Mac：由 GitHub Actions 在 Mac 环境构建 x64 / arm64 的 DMG；请以 Releases 中实际存在的文件为准。

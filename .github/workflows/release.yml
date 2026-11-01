@@ -48,6 +48,7 @@ jobs:
           name: ${{ matrix.label }}
           path: |
             release/*.exe
+            release/*.zip
             release/*.dmg
             release/*.blockmap
           if-no-files-found: error
@@ -67,5 +68,9 @@ jobs:
           GH_REPO: ${{ github.repository }}
           TAG: ${{ github.ref_name }}
         run: |
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release already exists; preserving its reviewed assets."
+            exit 0
+          fi
           gh release create "$TAG" --draft --title "Science Arena $TAG" --notes "Windows/macOS builds. Unsigned; see distribution documentation for verification status."
-          find artifacts -type f \( -name '*.exe' -o -name '*.dmg' -o -name '*.blockmap' \) -exec gh release upload "$TAG" {} \;
+          find artifacts -type f \( -name '*.exe' -o -name '*.zip' -o -name '*.dmg' -o -name '*.blockmap' \) -exec gh release upload "$TAG" {} \;

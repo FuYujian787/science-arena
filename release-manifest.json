@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01T19:04:43.751Z",
+  "generatedAt": "2026-11-01T19:06:44.345Z",
   "files": [
     {
       "path": "server.mjs",
@@ -113,8 +113,8 @@
     },
     {
       "path": "README.distribution.md",
-      "sha256": "cfab50bb6e8239a152da6abbf38f3cd86fa20a757e480ee9816f8fe0caa7a263",
-      "bytes": 4523
+      "sha256": "3256541f92b8221ee7e33704a1b93e854525be67a9af23147587a51ccd773f6e",
+      "bytes": 4639
     },
     {
       "path": "docs/跨平台发布方案.md",
@@ -123,8 +123,8 @@
     },
     {
       "path": "docs/跨平台发布状态.md",
-      "sha256": "b611d4f7c190e6d006049cac7791c5f2f02b4fddad08cb4ba24b5e38cb720d4b",
-      "bytes": 998
+      "sha256": "b9e8807b2ef07312717bc52ddfcb64049438da3b051b1711ed7a54d18c22149a",
+      "bytes": 1519
     },
     {
       "path": "docs/release-notes-0.2.0.md",
@@ -338,8 +338,8 @@
     },
     {
       "path": ".github/workflows/release.yml",
-      "sha256": "399d0c62d4b2a1b184df191240da44324d1b21e9a9f53c3536575ddbc0e778ff",
-      "bytes": 2018
+      "sha256": "7c00f5c7634eecdbe612e78bf521f583c03d7683ea326fffc4393c954670e7b3",
+      "bytes": 2226
     },
     {
       "path": "site/index.html",
