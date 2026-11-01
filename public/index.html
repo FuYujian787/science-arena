@@ -1,0 +1,275 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Science Arena · 多学科科研预评审</title>
+<meta name="description" content="从一句假说到已有研究，围绕具体问题开展多学科评审、交叉质询与材料核查。">
+<link rel="stylesheet" href="/styles.css">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/icons/icon-192.png">
+<meta name="theme-color" content="#f6f7f9">
+</head>
+<body>
+
+<div class="aurora" aria-hidden="true"></div>
+<a class="skip-link" href="#app">跳到主要内容</a>
+
+<!-- ======================= 顶栏 ======================= -->
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 32 32" width="19" height="19">
+        <path d="M16 2 L29 9.5 L29 22.5 L16 30 L3 22.5 L3 9.5 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <circle cx="16" cy="16" r="3.4" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="brand-text">
+      <h1>Science Arena</h1>
+      <p>Workbench · 多智能体科研假说辩论</p>
+    </div>
+  </div>
+
+  <nav class="topnav">
+    <button class="navbtn" data-view="home">新建辩论</button>
+    <button class="navbtn" data-view="arena" disabled id="nav-arena">辩论场</button>
+    <button class="navbtn" data-view="report" disabled id="nav-report">评审产出</button>
+    <button class="navbtn" data-view="library">案例库</button>
+  </nav>
+
+  <div class="topbar-right">
+    <span class="pill" id="provider-pill" title="当前模型后端">—</span>
+    <button class="ghost-btn" id="btn-health" title="查看后端配置与 Dify 连接">后端状态</button>
+    <button class="ghost-btn" id="btn-settings">模型设置</button>
+  </div>
+</header>
+
+<main id="app">
+
+  <!-- ======================= 视图：新建辩论 ======================= -->
+  <section class="view" id="view-home">
+
+    <div class="masthead">
+      <div class="masthead-left">
+        <span class="masthead-title">工作台 / Workbench</span>
+        <span class="masthead-title" style="color:var(--muted-2)">No. 001</span>
+      </div>
+      <div class="masthead-right">浙江大学校园 AI 创新应用大赛 · 学生组 · 科研创新</div>
+    </div>
+
+    <div class="hero">
+      <h2>让研究假说，<br>经得起<span class="spectral-text">多学科追问</span>。</h2>
+      <p class="hero-sub">
+        输入一个研究假设，科学家、统计学家、临床专家、审稿人与创新性评估员各自
+        <b>独立评审</b>——互相看不见，避免被第一个发言者带跑——再交叉质疑、互相质询。
+        最后由主持人收敛成<b>争议清单、创新性评分卡、修改对照表、修正版研究方案</b>。
+      </p>
+      <div class="hero-tags">
+        <span class="hero-tag">独立评审 · 交叉质询</span>
+        <span class="hero-tag">单场 3–6 分钟</span>
+        <span class="hero-tag">可导出 Word</span>
+        <span class="hero-tag">来源标注 · 建议可回看</span>
+        <span class="hero-tag">不替代导师与伦理审查</span>
+      </div>
+    </div>
+
+    <div class="desk">
+      <div class="sheet">
+        <div class="sheet-head">
+          <span class="mono-label">研究假设 / Hypothesis</span>
+          <span class="counter"><span id="char-count">0</span> / <span id="input-limit">2000</span></span>
+        </div>
+        <div class="input-modes" role="group" aria-label="选择输入方式">
+          <button type="button" class="input-mode active" data-input-mode="hypothesis" aria-pressed="true">一句话假说</button>
+          <button type="button" class="input-mode" data-input-mode="research" aria-pressed="false">已有研究 · 聚焦讨论</button>
+        </div>
+        <label class="field-label" id="input-label" for="hypothesis">把你想做的研究写成一句话</label>
+        <textarea id="hypothesis" rows="3" maxlength="2000"
+          placeholder="例如：某种菌群能否通过胆汁酸改善 IBD 抑郁共病？"></textarea>
+
+        <div class="sheet-guide">
+          <span class="mono-label">好假设通常写明了这四件事</span>
+          <ul>
+            <li><b>研究对象</b><span>哪种菌、哪种干预或暴露</span></li>
+            <li><b>作用路径</b><span>你想主张的机制</span></li>
+            <li><b>结局指标</b><span>改善什么，用什么衡量</span></li>
+            <li><b>目标人群</b><span>在谁身上成立</span></li>
+          </ul>
+        </div>
+        <div class="research-guide" id="research-guide" hidden>
+          <p>写清已有事实、已做分析和本轮焦点。补充表没有提供的内容，请标为待核查；每次新会话需要重新提供背景。</p>
+          <button type="button" class="ghost-btn small" id="btn-input-template">填入研究讨论模板</button>
+        </div>
+
+        <div class="sheet-controls">
+          <div class="controls-group">
+            <label class="inline-field">
+              后端
+              <select id="provider-select"></select>
+            </label>
+            <label class="inline-field">
+              交叉质疑
+              <select id="rounds-select">
+                <option value="1">1 轮（快）</option>
+                <option value="2" selected>2 轮（推荐）</option>
+                <option value="3">3 轮（更充分）</option>
+              </select>
+            </label>
+          </div>
+          <button class="primary-btn" id="btn-start"><span class="btn-label">启动辩论</span></button>
+        </div>
+        <div class="hint" id="home-hint"></div>
+      </div>
+
+      <aside class="signatures">
+        <h3>出庭的五位评审 + 主持人</h3>
+        <p class="sig-note">各自独立评审，互相看不见。这是刻意的——顺序发言会让后面的角色被第一个带跑。</p>
+        <div id="home-roles"></div>
+      </aside>
+    </div>
+
+    <div class="cases-block">
+      <div class="section-head">
+        <h3>演示案例</h3>
+        <span class="muted">点一下即可填入假设</span>
+      </div>
+      <div class="case-grid" id="case-grid"></div>
+    </div>
+
+    <div class="recent-block">
+      <div class="section-head">
+        <h3>历史会话登记簿</h3>
+        <button class="ghost-btn small" id="btn-refresh-sessions">刷新</button>
+      </div>
+      <div id="session-list" class="session-list"></div>
+    </div>
+  </section>
+
+  <!-- ======================= 视图：辩论场 ======================= -->
+  <section class="view" id="view-arena" hidden>
+    <div class="stagebar" id="stagebar"></div>
+
+    <div class="arena" id="arena">
+      <aside class="rail" id="role-rail"></aside>
+
+      <div class="timeline-wrap">
+        <div class="timeline-head">
+          <div class="th-left">
+            <span class="live-dot" id="live-dot"></span>
+            <strong id="arena-title">辩论进行中</strong>
+            <span class="muted" id="arena-sub"></span>
+          </div>
+          <div class="th-right">
+            <button class="ghost-btn small" id="btn-cancel" hidden>中止</button>
+            <button class="ghost-btn small" id="btn-follow" title="自动滚动到最新发言">跟随：开</button>
+          </div>
+        </div>
+        <div class="timeline" id="timeline">
+          <div class="empty-state" id="timeline-empty">正在启动辩论…</div>
+        </div>
+      </div>
+
+      <aside class="side">
+        <div class="side-tabs">
+          <button class="sidetab active" data-side="evidence">证据卡</button>
+          <button class="sidetab" data-side="contentions">争议清单</button>
+        </div>
+        <div class="side-body" id="side-evidence">
+          <p class="muted pad">尚未检索到证据。</p>
+        </div>
+        <div class="side-body" id="side-contentions" hidden>
+          <p class="muted pad">辩论结束后由主持人汇总生成。</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ======================= 视图：评审产出 ======================= -->
+  <section class="view" id="view-report" hidden>
+    <div class="report-head">
+      <div>
+        <h2 id="report-title">评审产出</h2>
+        <p class="muted" id="report-sub"></p>
+      </div>
+      <div class="report-actions">
+        <a class="ghost-btn" id="btn-docx">导出 Word</a>
+        <a class="ghost-btn" id="btn-md" target="_blank" rel="noopener">导出 Markdown</a>
+        <a class="ghost-btn" id="btn-html" target="_blank" rel="noopener">导出 / 打印 PDF</a>
+      </div>
+    </div>
+
+    <!-- 白纸：争论收敛后的产物。整套浅色令牌由 .paper-sheet 提供 -->
+    <div class="paper-sheet">
+      <div class="tabs" id="report-tabs">
+        <button class="tab active" data-tab="summary">总结</button>
+        <button class="tab" data-tab="contentions">争议清单</button>
+        <button class="tab" data-tab="scorecard">创新性评分卡</button>
+        <button class="tab" data-tab="changelog">修改对照表（建议）</button>
+        <button class="tab" data-tab="protocol">修正版方案</button>
+        <button class="tab" data-tab="transcript">完整记录</button>
+      </div>
+
+      <div class="tabpanes" id="report-panes">
+        <div class="pane active" data-pane="summary"><p class="muted">辩论完成后生成。</p></div>
+        <div class="pane" data-pane="contentions"></div>
+        <div class="pane" data-pane="scorecard"></div>
+        <div class="pane" data-pane="changelog"></div>
+        <div class="pane" data-pane="protocol"></div>
+        <div class="pane" data-pane="transcript"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= 视图：案例库 ======================= -->
+  <section class="view" id="view-library" hidden>
+    <div class="masthead">
+      <div class="masthead-left">
+        <span class="masthead-title">案例库 / Library</span>
+      </div>
+      <div class="masthead-right">可复用的演示案例与历史评审记录</div>
+    </div>
+    <div class="section-head" style="margin-top:34px">
+      <h3>演示案例</h3>
+      <span class="muted">点一下即可填入假设</span>
+    </div>
+    <div class="case-grid" id="library-grid"></div>
+    <div class="section-head">
+      <h3>历史评审</h3>
+    </div>
+    <div id="library-sessions" class="session-list"></div>
+  </section>
+
+</main>
+
+<!-- ======================= 后端状态弹层 ======================= -->
+<div class="modal-backdrop" id="modal" hidden>
+  <div class="modal">
+    <div class="modal-head">
+      <h3>后端状态 / Backend</h3>
+      <button class="ghost-btn small" id="modal-close">关闭</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toast-wrap"></div>
+
+<dialog id="model-settings" class="settings-dialog" aria-labelledby="settings-heading">
+  <form id="model-settings-form" class="settings-form">
+    <div class="modal-head"><h3 id="settings-heading">连接你的模型</h3><button type="button" id="settings-close" class="ghost-btn">关闭</button></div>
+    <p class="muted" id="settings-privacy"></p>
+    <label for="settings-provider">模型后端</label>
+    <select name="provider" id="settings-provider"><option value="deepseek">DeepSeek 直连</option><option value="dify">Dify 应用</option><option value="mock">离线演示 · 不调用模型</option></select>
+    <div data-model-field><label for="settings-key">API Key / Dify App Key</label><input name="apiKey" id="settings-key" type="password" autocomplete="off" maxlength="4096" spellcheck="false" placeholder="填写你自己的密钥"></div>
+    <div data-model-field><label for="settings-url">API 地址</label><input name="baseUrl" id="settings-url" type="url" placeholder="https://api.deepseek.com" spellcheck="false"></div>
+    <div id="settings-model-field"><label for="settings-model">模型名称</label><input name="model" id="settings-model" value="deepseek-flash" spellcheck="false"></div>
+    <label id="settings-storage" class="settings-remember"><input type="checkbox" id="settings-remember">在此设备加密保存配置</label>
+    <p class="muted">连接测试会发送简短测试请求，产生少量模型用量。</p>
+    <p id="settings-status" class="settings-status" role="status" aria-live="polite"></p>
+    <div class="settings-actions"><button type="button" class="ghost-btn" id="settings-clear">清除配置</button><button type="button" class="ghost-btn" id="settings-test">测试连接</button><button type="submit" class="primary-btn">使用此配置</button></div>
+  </form>
+</dialog>
+
+<script type="module" src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+{
+  "generatedAt": "2026-11-01T18:56:26.367Z",
+  "files": [
+    {
+      "path": "server.mjs",
+      "sha256": "57c44db6c9298b11505bdb373764941933949d3e4c1fa26364165ddd7e72e488",
+      "bytes": 21894
+    },
+    {
+      "path": "cli.mjs",
+      "sha256": "6ce4bbf3e83821b55101f3685c730efa41ac1af28b8c50ab2153c9e793f38068",
+      "bytes": 8684
+    },
+    {
+      "path": "package.json",
+      "sha256": "8fd843eb6728b614afa47c89527620c0ced0c0af98c24453b451bac7e17a9979",
+      "bytes": 1536
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "602563ccbedee005b6a7c13443585d3abdb603fa2b37e5f0595aa8a70e9f6977",
+      "bytes": 127162
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "8645f9e958ce99bf2bbc0d74903e279ba83bdfebe315e18418192e39937be3fb",
+      "bytes": 151
+    },
+    {
+      "path": ".env.example",
+      "sha256": "75a8b9c5e658ec2f3a44db058eb94108bbfab756e363b23da1670a88bf9ced20",
+      "bytes": 2094
+    },
+    {
+      "path": "Dockerfile",
+      "sha256": "2ca5917b11e0bbab5659bb5533a9876f0e1a25e8e4cb765eb60bc50202cf2f07",
+      "bytes": 1315
+    },
+    {
+      "path": ".dockerignore",
+      "sha256": "98ff48505ffe0497bc96df9c023ceb7a2781e9c4bfa3e0c2a1b865c73ba279a1",
+      "bytes": 267
+    },
+    {
+      "path": "deploy/compose.public.yml",
+      "sha256": "85ca5bf6dd6078e4f0840a9d15d042631454912215fbba29758c9bb6443249e1",
+      "bytes": 814
+    },
+    {
+      "path": "deploy/Caddyfile.public",
+      "sha256": "4ccbb7401babd1ec1212c9543b2b76093cbcce1d566d6aa03b4dfbc3f5243741",
+      "bytes": 83
+    },
+    {
+      "path": "deploy/public.env.example",
+      "sha256": "4585a9a38e8bce49308dc4d675aafc33f641030e305f1124101a658c42a28472",
+      "bytes": 143
+    },
+    {
+      "path": "tools/test.mjs",
+      "sha256": "5cbf41f109d1b84a57c0f9c3d29a428bb4699f14dca5a0d94f943a35dbd7e733",
+      "bytes": 24143
+    },
+    {
+      "path": "tools/test-http-e2e.mjs",
+      "sha256": "e3dc321d83dd5d2231d880e805fdecfa6144cc48ebdb28c6385521a8daf03c2a",
+      "bytes": 8706
+    },
+    {
+      "path": "tools/test-dify-e2e.mjs",
+      "sha256": "b0b921e0621c49fe04476b39e6f87585684219c9169b19557eab49319425e25c",
+      "bytes": 4620
+    },
+    {
+      "path": "tools/test-distribution.mjs",
+      "sha256": "6c0a119af8d00a86c495db12c7c8685c597dcc8fcf940a62b0072c091e90d5e6",
+      "bytes": 5995
+    },
+    {
+      "path": "tools/mock-dify.mjs",
+      "sha256": "aa0d1c2c0900e46aa90181c93c534a34662318d4f220fbc54b37acbfe8b4822d",
+      "bytes": 9450
+    },
+    {
+      "path": "tools/generate-icons.mjs",
+      "sha256": "19037ff42224fbabbdec85adc28f56f0cc2b363a70debc285c5f219419ad7bba",
+      "bytes": 1862
+    },
+    {
+      "path": "tools/prepare-release.mjs",
+      "sha256": "a226197ee1ffffbe3e28ec0e7fd170888ca83c29c9a2e0f7c23e06b8389fc599",
+      "bytes": 3270
+    },
+    {
+      "path": "tools/start-personal.mjs",
+      "sha256": "07bc0a9265d620d5ce8650cf4f4fa2211ee2c4b1171bf675fb29c9697fe6dd07",
+      "bytes": 264
+    },
+    {
+      "path": "tools/build-desktop.mjs",
+      "sha256": "442197acd22468703ef113040262581d2319a8a42d79fecd33b167feeabb20ae",
+      "bytes": 1723
+    },
+    {
+      "path": "README.distribution.md",
+      "sha256": "cfab50bb6e8239a152da6abbf38f3cd86fa20a757e480ee9816f8fe0caa7a263",
+      "bytes": 4523
+    },
+    {
+      "path": "docs/跨平台发布方案.md",
+      "sha256": "1379a519bc32ce673f477af84f7ccd02551b4c15f547a5703dd5fbe62fa7e460",
+      "bytes": 4690
+    },
+    {
+      "path": "docs/跨平台发布状态.md",
+      "sha256": "b611d4f7c190e6d006049cac7791c5f2f02b4fddad08cb4ba24b5e38cb720d4b",
+      "bytes": 998
+    },
+    {
+      "path": "src/config.mjs",
+      "sha256": "fee742c68a57d6c6c58394acc7cb919778dcfdcb981ea290f483cf8e52d93d2a",
+      "bytes": 4060
+    },
+    {
+      "path": "src/engine/agents.mjs",
+      "sha256": "612643ac46f82f1f9bdea615781b1cb9190b3fc3ad907b8afdadc0d8a38c7732",
+      "bytes": 3105
+    },
+    {
+      "path": "src/engine/debate.mjs",
+      "sha256": "95ed7efc00766700cb0235c7afa528548a6592b03ac326cca4e9f4c9d4c30676",
+      "bytes": 24974
+    },
+    {
+      "path": "src/engine/evidence.mjs",
+      "sha256": "4a8da0bb5f065d0f538a82a1e0a3908a22f2e6b209213c7c98faf2c06031bbb9",
+      "bytes": 13304
+    },
+    {
+      "path": "src/engine/hypothesis.mjs",
+      "sha256": "bc3e4bf52308a4c777a3d7ede5a2bec56f73e594f01216d920e3631178d968bd",
+      "bytes": 4841
+    },
+    {
+      "path": "src/engine/provenance.mjs",
+      "sha256": "18fa79e679ba1d24f55e2fb2814cc4e5cd99afcc8cd20d5f7897461df22d20e8",
+      "bytes": 1726
+    },
+    {
+      "path": "src/engine/retriever/index.mjs",
+      "sha256": "9520659478ba7e0d4ce7bbf7119f6d9b65ad27f43c85ec39edc63fb22701d235",
+      "bytes": 793
+    },
+    {
+      "path": "src/engine/retriever/pubmed.mjs",
+      "sha256": "b9bfad26218818cc8eb2015c8bab736d4cf99ebd2c1abbae8535b3267dd34f18",
+      "bytes": 5819
+    },
+    {
+      "path": "src/engine/synthesize.mjs",
+      "sha256": "f9f64a10ec0e352dda785f71b526221f872104bf1523ef29bdeb8559fc85ff99",
+      "bytes": 8701
+    },
+    {
+      "path": "src/export/docx.mjs",
+      "sha256": "aeaba6663676bd5e8f4c7656b9273a9afe735edea2869f6057a593e46510a986",
+      "bytes": 18296
+    },
+    {
+      "path": "src/export/report.mjs",
+      "sha256": "af1b26a67963246d96cdac6a6305fc5a50a41521cee5db67f65579c6ee1ef47f",
+      "bytes": 19229
+    },
+    {
+      "path": "src/hosting.mjs",
+      "sha256": "cb8339c6720f925b486246c3a5e8d0f9565e6309198855dea80aa4719f1dd0e1",
+      "bytes": 4389
+    },
+    {
+      "path": "src/lib/util.mjs",
+      "sha256": "c1af4b9ad2d9a6787dc1a6e8bdd33dc19d981217beacb7fb05e0cb5bf665c515",
+      "bytes": 5673
+    },
+    {
+      "path": "src/llm/deepseek.mjs",
+      "sha256": "0c53f0d1daca880d3b54750723b1029dc66a9820bbfe71c27fdcb0f56193ab80",
+      "bytes": 5936
+    },
+    {
+      "path": "src/llm/dify.mjs",
+      "sha256": "aff0bb415149dd2b3bc305ac669e8ef09edcec14cffec9b25aac7873eb23ea6b",
+      "bytes": 16922
+    },
+    {
+      "path": "src/llm/mock.mjs",
+      "sha256": "2b46a75471b7bbce13f057e53c1b91389296bb82501af1bf0f9a0c4a559531d8",
+      "bytes": 17708
+    },
+    {
+      "path": "src/llm/provider.mjs",
+      "sha256": "d0bc1b76b84c0d37b29dcb85f4ab5379932d088f49c9bf1edd47dc7a49718cdd",
+      "bytes": 1026
+    },
+    {
+      "path": "src/store/session.mjs",
+      "sha256": "ff30a634a26bd0bff42abcb1cb9a80cdc81b4b5e95cbf3b80a3cbe439b7d9963",
+      "bytes": 3700
+    },
+    {
+      "path": "public/app.js",
+      "sha256": "723329930998090183e35480155702eb435aa2b159a3112f3221cdfacb6a8273",
+      "bytes": 50790
+    },
+    {
+      "path": "public/icons/icon-192.png",
+      "sha256": "33c24bc9bc723201d4f13ccbf281e8003bf32aa4c119ad029faa0250bc6c9443",
+      "bytes": 2897
+    },
+    {
+      "path": "public/icons/icon-512.png",
+      "sha256": "dd620a8c2d3ef1e195d7235292bcf295cd744d47a0b3c1c6fc004f87db5df021",
+      "bytes": 10770
+    },
+    {
+      "path": "public/index.html",
+      "sha256": "41ba360f8cd47b72890a3432a596bc4a9402a3de908fe0e839f935f0bb62cfe4",
+      "bytes": 12802
+    },
+    {
+      "path": "public/manifest.webmanifest",
+      "sha256": "70dbbcdaa2cced2541aec66c2f0e8f13d19d94fc0bb9d8afc9d5659f6fcc2320",
+      "bytes": 518
+    },
+    {
+      "path": "public/scoring.mjs",
+      "sha256": "e93635e8a8c74d47d8edd0076e1dc0337f7bff0850b2fe7e6d8c05de707c7c15",
+      "bytes": 3741
+    },
+    {
+      "path": "public/settings.mjs",
+      "sha256": "30a4aa75807e928645eafd4cb06c38ef8f342c003538ab2d1a873cb2e320af54",
+      "bytes": 4826
+    },
+    {
+      "path": "public/styles.css",
+      "sha256": "44569216173a3a36f33a7107b1afa3437235a52f966bde2e3ba2da5c193154be",
+      "bytes": 47853
+    },
+    {
+      "path": "public/sw.js",
+      "sha256": "767513225919a8d7323c1399f18641cfc08dd05ef8bc5e741c6bc94944eb4aa4",
+      "bytes": 1137
+    },
+    {
+      "path": "prompts/01-scientist.md",
+      "sha256": "bb9648783556d4d5fd6ecfee69f151ac5b8e0e21d44d812080852f7040e79139",
+      "bytes": 1624
+    },
+    {
+      "path": "prompts/02-statistician.md",
+      "sha256": "e906878982cd0156016d051240ffe06505c91fc6f7dd770620e79400313d6422",
+      "bytes": 1734
+    },
+    {
+      "path": "prompts/03-clinician.md",
+      "sha256": "f61cb8dfac70b8dbcf7421845eacd19bd9b98cbdad1c8313544e60783049c078",
+      "bytes": 1838
+    },
+    {
+      "path": "prompts/04-reviewer.md",
+      "sha256": "fdcc9ecada0555a906a5805da5f2a3eebee77a4af5a0c58d07d75d339f56c9ab",
+      "bytes": 2053
+    },
+    {
+      "path": "prompts/05-innovator.md",
+      "sha256": "c75dc0ca5fa5479d231ed4cf3388c590030b8fec5ef5ced10ad4beade92d89ac",
+      "bytes": 4520
+    },
+    {
+      "path": "prompts/06-moderator.md",
+      "sha256": "ce332ac5dc5cafd88a4df7597e41c85b7bfec8b1f1d10de1d65588eb4c50e6d1",
+      "bytes": 3563
+    },
+    {
+      "path": "prompts/_shared.md",
+      "sha256": "5161601b1b59e8878148f897eac863c00478d7a0730e96f164db959f404ca9b1",
+      "bytes": 3141
+    },
+    {
+      "path": "desktop/main.cjs",
+      "sha256": "282d7271bfd5c609baf55be3e6841b15f1df73af2a7ba0d5d737ffb2703a2f8d",
+      "bytes": 5499
+    },
+    {
+      "path": "desktop/preload.cjs",
+      "sha256": "4769c59f517dd9f49227108022434286ea70da2d674e80ae3509318d6399752c",
+      "bytes": 318
+    },
+    {
+      "path": "build/icon.ico",
+      "sha256": "be30d470ee6f58b5d6d723d22e4d71efde8d8ee8c0ae553f25726a9fae3db6b8",
+      "bytes": 4090
+    },
+    {
+      "path": "build/icon.png",
+      "sha256": "dd620a8c2d3ef1e195d7235292bcf295cd744d47a0b3c1c6fc004f87db5df021",
+      "bytes": 10770
+    },
+    {
+      "path": ".github/workflows/check.yml",
+      "sha256": "64b31cd9896cf5d73a03ba08fa8472c36216250472901c2bf62a0f213c35dcab",
+      "bytes": 397
+    },
+    {
+      "path": ".github/workflows/pages.yml",
+      "sha256": "17c6bae0cecd32dea606172a4db09eb1561db1fb6ded500e8d23878c2e29edc7",
+      "bytes": 538
+    },
+    {
+      "path": ".github/workflows/release.yml",
+      "sha256": "399d0c62d4b2a1b184df191240da44324d1b21e9a9f53c3536575ddbc0e778ff",
+      "bytes": 2018
+    },
+    {
+      "path": "site/index.html",
+      "sha256": "3c1605367afa5edb1d4152aeb885a6d59e03268aa5b9a1e49f7a67fe7126caf6",
+      "bytes": 3104
+    },
+    {
+      "path": "dify/science-arena-backend.yml",
+      "sha256": "b1a4363f76e983106018c819450f88bf204aac8f08f1d2fc2a27ee1442a1af65",
+      "bytes": 5884
+    },
+    {
+      "path": "dify/science-arena-debate.yml",
+      "sha256": "15d162de0025953fa7742cc70ddf732fd3187705b927e8de0d3393b6ed8b05ca",
+      "bytes": 58122
+    }
+  ]
+}

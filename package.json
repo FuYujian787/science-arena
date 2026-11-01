@@ -1,0 +1,32 @@
+{
+  "name": "science-arena",
+  "version": "0.2.0",
+  "description": "多智能体科研假说辩论与方案修正平台",
+  "private": true,
+  "license": "UNLICENSED",
+  "author": "假说引力团队",
+  "type": "module",
+  "main": "desktop/main.cjs",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "start": "node server.mjs",
+    "desktop": "electron .",
+    "test": "node tools/test.mjs && node tools/test-http-e2e.mjs && node tools/test-distribution.mjs",
+    "check": "npm test",
+    "pack:win": "node tools/build-desktop.mjs win",
+    "pack:mac": "electron-builder --mac dmg --publish never",
+    "pack:dir": "electron-builder --dir --publish never",
+    "release:source": "node tools/prepare-release.mjs"
+  },
+  "devDependencies": { "electron": "45.2.1", "electron-builder": "26.18.0" },
+  "build": {
+    "appId": "org.sciencearena.desktop",
+    "productName": "Science Arena",
+    "directories": { "output": "release" },
+    "asar": true,
+    "files": ["desktop/**", "server.mjs", "src/**", "public/**", "prompts/**", "package.json"],
+    "win": { "target": ["nsis", "zip"], "icon": "build/icon.ico", "artifactName": "Science-Arena-${version}-Windows-${arch}.${ext}", "signExecutable": false },
+    "nsis": { "oneClick": false, "perMachine": false, "allowToChangeInstallationDirectory": true, "deleteAppDataOnUninstall": false },
+    "mac": { "target": ["dmg"], "icon": "build/icon.png", "category": "public.app-category.education", "identity": null, "artifactName": "Science-Arena-${version}-macOS-${arch}.${ext}" }
+  }
+}

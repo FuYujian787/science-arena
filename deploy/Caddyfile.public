@@ -1,0 +1,6 @@
+{$DOMAIN} {
+  encode gzip
+  reverse_proxy arena:3010 {
+    flush_interval -1
+  }
+}

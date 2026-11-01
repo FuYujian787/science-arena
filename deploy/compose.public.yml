@@ -1,0 +1,32 @@
+services:
+  arena:
+    build:
+      context: ..
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      ARENA_MODE: public
+      ARENA_IGNORE_ENV_FILE: '1'
+      ARENA_PUBLIC_ORIGIN: https://${DOMAIN:?Set DOMAIN in deploy/.env}
+      ARENA_HOURLY_LIMIT: ${ARENA_HOURLY_LIMIT:-12}
+      HOST: 0.0.0.0
+      PORT: 3010
+      LLM_PROVIDER: deepseek
+      ARENA_DIFY_ALLOWED_URL: ${ARENA_DIFY_ALLOWED_URL:-}
+    volumes:
+      - arena-data:/app/data
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports: ['80:80', '443:443', '443:443/udp']
+    environment:
+      DOMAIN: ${DOMAIN}
+    volumes:
+      - ./Caddyfile.public:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on: [arena]
+volumes:
+  arena-data:
+  caddy-data:
+  caddy-config:

@@ -1,0 +1,19 @@
+# 构建镜像时排除的东西
+# 尤其注意 .env —— 密钥绝不能进镜像层，否则 docker history / 镜像导出都能翻出来
+
+.env
+.env.*
+!.env.example
+
+data/
+samples/
+docs/
+deploy/
+*.log
+*.md
+!README.md
+!prompts/*.md
+
+.git/
+.gitignore
+node_modules/
